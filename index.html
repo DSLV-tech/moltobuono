@@ -3840,114 +3840,45 @@
              allergens = certi, dichiarati sempre
              check     = possibili, dipendono dall'etichetta del fornitore */
         const ING_DEFAULTS = {
-            // Impasto
             farina: { name: 'Farina tipo 0 / 00', price: 1.20, allergens: ['glutine'] },
             acqua: { name: 'Acqua', price: 0.01, allergens: [] },
             sale: { name: 'Sale marino', price: 0.55, allergens: [] },
             lievito: { name: 'Lievito di birra fresco', price: 4.00, allergens: [] },
             olio: { name: 'Olio EVO', price: 8.50, allergens: [] },
-            // Pomodori
-            sanmarzano: { name: 'Pomodoro San Marzano DOP', price: 3.10, allergens: [] },
-            pomodoro_antico: { name: 'Pomodoro Antico di Napoli', price: 3.40, allergens: [] },
-            datterino_rosso: { name: 'Pomodorini Datterino rossi', price: 4.20, allergens: [] },
-            datterino_giallo: { name: 'Datterini Gialli', price: 4.40, allergens: [] },
-            // Latticini
-            fiordilatte: { name: 'Fior di Latte', price: 7.50, allergens: ['latte'] },
-            bufala: { name: 'Mozzarella di Bufala Campana DOP', price: 11.50, allergens: ['latte'] },
-            provola: { name: 'Provola affumicata di Agerola', price: 8.80, allergens: ['latte'] },
-            gorgonzola: { name: 'Gorgonzola DOP', price: 9.50, allergens: ['latte'] },
-            branzi: { name: 'Branzi FTB', price: 14.00, allergens: ['latte'] },
-            ricotta: { name: 'Ricotta di Fuscella', price: 6.00, allergens: ['latte'] },
-            burrata: { name: 'Burrata Pugliese', price: 11.00, allergens: ['latte'] },
-            stracciata: { name: 'Stracciata / Stracciatella', price: 12.00, allergens: ['latte'] },
-            ricotta_salata: { name: 'Ricotta salata', price: 10.00, allergens: ['latte'] },
-            panna: { name: 'Panna', price: 3.50, allergens: ['latte'] },
-            pecorino: { name: 'Pecorino Romano DOP', price: 13.00, allergens: ['latte'] },
-            grana: {
-                name: 'Grana / Parmigiano grattugiato', price: 12.50, allergens: ['latte'],
-                check: ['uova'],
-                note: 'Il Grana Padano contiene lisozima da uovo. Il Parmigiano Reggiano no: verifica quale usi.'
-            },
-            fonduta_grana: { name: 'Fonduta di Grana', price: 9.00, allergens: ['latte'] },
-            fonduta_parm: { name: 'Fonduta di Parmigiano', price: 9.50, allergens: ['latte'] },
-            // Salumi e carne (da confermare in etichetta)
-            salame_napoli: {
-                name: 'Salame Napoli', price: 12.00, allergens: [], check: ['latte', 'solfiti'],
-                note: 'Molti salami contengono lattosio e/o solfiti. Controlla l\'etichetta.'
-            },
-            salame_dolce: {
-                name: 'Salame Napoletano Dolce', price: 12.00, allergens: [], check: ['latte', 'solfiti'],
-                note: 'Controlla la presenza di lattosio o solfiti in etichetta.'
-            },
+            pomodoro: { name: 'Pomodoro azienda Nolano', price: 2.80, allergens: [] },
+            paccatella: { name: 'Paccatella Nolano', price: 4.60, allergens: [] },
+            fiordilatte: { name: 'Fior di latte Sorrentina', price: 7.50, allergens: ['latte'] },
+            provola: { name: 'Provola affumicata', price: 8.60, allergens: ['latte'] },
+            stracciatella: { name: 'Stracciatella di bufala', price: 14.00, allergens: ['latte'] },
             spianata: {
-                name: 'Spianata Calabrese', price: 12.50, allergens: [], check: ['latte', 'solfiti'],
-                note: 'Alcune spianate contengono lattosio o solfiti. Controlla l\'etichetta.'
-            },
-            nduja: {
-                name: '\'Nduja di Spilinga', price: 13.00, allergens: [], check: ['solfiti'],
-                note: 'Verifica la presenza di solfiti in etichetta.'
-            },
-            salsiccia: { name: 'Salsiccia a punta di coltello', price: 9.00, allergens: [] },
-            salsiccia_picc: {
-                name: 'Salsiccia passita piccante', price: 10.50, allergens: [], check: ['latte', 'solfiti'],
-                note: 'Controlla l\'etichetta del salume.'
-            },
-            cotto: {
-                name: 'Prosciutto Cotto', price: 11.50, allergens: [], check: ['latte', 'soia'],
-                note: 'Molti cotti usano proteine del latte o della soia. Controlla l\'etichetta.'
+                name: 'Spianata calabrese', price: 12.50, allergens: [],
+                check: ['latte', 'solfiti'],
+                note: 'Alcuni salami contengono lattosio o solfiti. Controlla l\'etichetta.'
             },
             crudo: {
-                name: 'Prosciutto Crudo di Parma', price: 24.00, allergens: [],
-                note: 'DOP: solo suino e sale, nessun allergene.'
+                name: 'Prosciutto crudo', price: 22.00, allergens: [],
+                note: 'Se DOP (Parma, San Daniele) contiene solo suino e sale: nessun allergene.'
             },
-            porchetta: {
-                name: 'Porchetta', price: 12.00, allergens: [], check: ['glutine', 'latte', 'senape'],
-                note: 'Le aromatizzazioni variano molto. Controlla l\'etichetta.'
+            cotto: {
+                name: 'Prosciutto cotto', price: 11.50, allergens: [],
+                check: ['latte', 'soia'],
+                note: 'Molti cotti usano proteine del latte o della soia. Controlla l\'etichetta.'
             },
-            lardo: { name: 'Lardo Bergamasco', price: 14.00, allergens: [] },
-            popcorn_maiale: { name: 'Pop Corn di Maiale (ciccioli)', price: 15.00, allergens: [] },
-            mortadella: {
-                name: 'Mortadella IGP di Bologna', price: 11.00, allergens: [],
-                check: ['frutta_guscio', 'soia'],
-                note: 'Spesso contiene pistacchio (frutta a guscio) e/o soia. Controlla l\'etichetta.'
+            funghi: { name: 'Funghi champignon', price: 3.60, allergens: [] },
+            carciofini: {
+                name: 'Carciofini sott\'olio', price: 7.20, allergens: [],
+                check: ['solfiti'],
+                note: 'I sott\'oli usano spesso solfiti come conservante.'
             },
-            wurstel: {
-                name: 'Würstel artigianale', price: 8.50, allergens: [], check: ['latte', 'soia', 'senape'],
-                note: 'Controlla l\'etichetta del produttore.'
+            rucola: { name: 'Rucola', price: 6.50, allergens: [] },
+            scaglie: {
+                name: 'Scaglie di grana', price: 12.50, allergens: ['latte'],
+                check: ['uova'],
+                note: 'Il Grana Padano contiene lisozima da uovo. Il Parmigiano Reggiano no.'
             },
-            // Pesce
-            acciughe: { name: 'Acciughe del Mar Cantabrico', price: 28.00, allergens: ['pesce'] },
-            // Verdure e altro
-            friarielli: { name: 'Friarielli Napoletani', price: 6.50, allergens: [] },
-            funghi_porcini: { name: 'Funghi Porcini', price: 15.00, allergens: [] },
-            patate: { name: 'Patate', price: 1.20, allergens: [] },
-            patatine: { name: 'Patatine Fritte', price: 2.60, allergens: [] },
-            melanzane: { name: 'Melanzane', price: 2.60, allergens: [] },
-            parmigiana: {
-                name: 'Parmigiana di Melanzane', price: 5.50, allergens: ['latte'],
-                note: 'Contiene formaggio; verifica se è impanata (glutine/uova).'
-            },
-            zucca: { name: 'Zucca', price: 1.80, allergens: [] },
-            carote: { name: 'Carote', price: 1.20, allergens: [] },
-            zucchine: { name: 'Zucchine', price: 2.00, allergens: [] },
-            peperoni: { name: 'Peperoni', price: 2.50, allergens: [] },
-            fiori_zucca: { name: 'Fiori di Zucca', price: 8.00, allergens: [] },
-            olive_taggiasche: {
-                name: 'Olive Taggiasche', price: 9.50, allergens: [], check: ['solfiti'],
-                note: 'Le olive in salamoia possono contenere solfiti.'
-            },
-            olive_nere: { name: 'Olive Nere', price: 6.00, allergens: [] },
-            polpettine: {
-                name: 'Polpettine fritte', price: 9.00, allergens: ['glutine'], check: ['uova', 'latte'],
-                note: 'Contengono pane (glutine); spesso uovo e formaggio. Controlla la ricetta.'
-            },
-            pesto_pistacchio: { name: 'Pesto di Pistacchio di Bronte', price: 24.00, allergens: ['frutta_guscio'] },
-            // Aromi
             basilico: { name: 'Basilico fresco', price: 12.00, allergens: [] },
             aglio: { name: 'Aglio', price: 4.20, allergens: [] },
-            origano: { name: 'Origano', price: 18.00, allergens: [] },
-            pepe: { name: 'Pepe nero', price: 16.00, allergens: [] },
-            peperoncino: { name: 'Peperoncino', price: 14.00, allergens: [] }
+            pepe: { name: 'Pepe nero', price: 16.00, allergens: [] }
         };
 
         /* Allergeni derivati dagli ingredienti effettivi della pizza */
@@ -3964,7 +3895,7 @@
             return { sure: [...sure], maybe: [...maybe] };
         }
 
-        const DOUGH_BASE = { farina: 155, acqua: 100, sale: 4, lievito: 0.3 };
+        const DOUGH_BASE = { farina: 165, acqua: 105, sale: 4, lievito: 0.5 };
 
         /* Note rapide: evitano di aprire la tastiera al banco */
         const QUICK_NOTES = ['Ben cotta', 'Poco cotta', 'Senza basilico', 'Da tagliare', "D'asporto", 'Senza aglio'];
@@ -6399,6 +6330,9 @@
                     <button class="qbtn minus" onclick="quickMove('${id}','scarico')">− Scarico</button>
                     <button class="qbtn plus" onclick="openCarico('${id}')">＋ Carico</button>
                 </div>
+                <input type="file" id="lbl-photo" accept="image/*" capture="environment" style="display:none" onchange="captureLabel('${id}', event)">
+                <button class="photo-btn" style="margin-bottom:8px" onclick="document.getElementById('lbl-photo').click()">📷 Fotografa etichetta</button>
+                ${p.labelPhotoId ? `<img class="photo-preview" style="display:block;margin-bottom:8px" data-photo="${p.labelPhotoId}" onclick="viewPhoto('${p.labelPhotoId}')" alt="etichetta prodotto">` : ''}
                 <div id="carico-form"></div>
                 <div class="block-label" style="margin-top:18px">Movimenti e lotti</div>
                 ${movesHtml}`;
@@ -6408,7 +6342,7 @@
         }
 
         function hydratePhotos() {
-            document.querySelectorAll('.lot-thumb[data-photo]').forEach(async img => {
+            document.querySelectorAll('[data-photo]').forEach(async img => {
                 if (img._done) return; img._done = true;
                 const data = await PhotoDB.get(img.getAttribute('data-photo'));
                 if (data) img.src = data; else { img.outerHTML = '<span class="lot-thumb empty">📷</span>'; }
@@ -6452,6 +6386,19 @@
             state._caricoPhoto = data;
             const pv = $('ca-preview'); if (pv) { pv.src = data; pv.style.display = 'block'; }
             ev.target.value = '';
+        }
+
+        async function captureLabel(prodId, ev) {
+            const file = ev.target.files && ev.target.files[0]; if (!file) return;
+            toast('Elaboro la foto…', 1500);
+            const data = await compressImage(file, 1024, 0.7);
+            if (!data) { toast('Foto non valida'); return; }
+            const p = findProd(prodId); if (!p) return;
+            if (p.labelPhotoId) PhotoDB.del(p.labelPhotoId);
+            const pid = 'ph' + Date.now(); await PhotoDB.put(pid, data);
+            p.labelPhotoId = pid; p.updatedAt = Date.now();
+            saveStock(); ev.target.value = '';
+            openProductSheet(prodId); toast('Etichetta salvata');
         }
 
         async function saveCarico(id) {
